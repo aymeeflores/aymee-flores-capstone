@@ -1,7 +1,7 @@
 import React from "react";
-import { Personicon } from "../../assets/person-circle.svg";
-import { Bell } from "../../assets/bell.svg";
-import { Envelope } from "../../assets/envelope.svg";
+import "./Navbar.scss";
+import { Bell, Envelope, PersonCircle, Search } from "react-bootstrap-icons";
+import Avatar from "../../assets/avatar.jpg";
 
 class Navbar extends React.Component {
   render() {
@@ -9,11 +9,12 @@ class Navbar extends React.Component {
       <>
         <nav className="navbar">
           <div className="navbar__left">
-            <span className="Logo">Resident Social</span>
+            <span className="navbar__logo">Resident Social</span>
           </div>
           <div className="navbar__center">
             <div className="navbar__searchbar">
-              <Search className="navbar__searchbar--searchIcon" />
+              <div className="navbar__searchbar--searchIcon"></div>
+              <Search />
               <input
                 placeholder="Search for friend, post or video"
                 className="navbar__searchbar--searchInput"
@@ -22,17 +23,24 @@ class Navbar extends React.Component {
           </div>
           <div className="navbar__right">
             <div className="navbar__links">
-              <span className="navbar__link">Homepage</span>
+              <span className="navbar__link">Home</span>
               <span className="navbar__link">Wall</span>
             </div>
             <div className="navbar__icons">
               <div className="navbar__icons--item">
-                <img src={Personicon} alt="profile icon" />
-                <img src={Bell} alt="notification icon" />
-                <img src={Envelope} alt="Message icon" />
+                <PersonCircle />
+                <span className="navbar__iconbadge">1</span>
               </div>
-              <div>
-                <img src="#" alt="profile badge" />
+              <div className="navbar__icons--item">
+                <Bell />
+                <span className="navbar__iconbadge">1</span>
+              </div>
+              <div className="navbar__icons--item">
+                <Envelope />
+                <span className="navbar__iconbadge">1</span>
+              </div>
+              <div className="navbar__avatar">
+                <img src={Avatar} alt="profile badge" />
               </div>
             </div>
           </div>
