@@ -28,10 +28,10 @@ export default class App extends React.Component {
           </header>
 
           <div className="container">
-            <aside>
+            <aside className="container__sidebar">
               <Sidebar />
             </aside>
-            <main className="main">
+            <main className="container__main">
               <Switch>
                 <Route path="/home" component={Home} />
                 <Route path="/feed" component={Feed} />
@@ -40,6 +40,9 @@ export default class App extends React.Component {
                 <Redirect from="/" to="/feed" exact />
               </Switch>
             </main>
+            <aside className="container__rightbar">
+              <Rightbar />
+            </aside>
           </div>
         </Router>
       </div>
