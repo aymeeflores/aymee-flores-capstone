@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import "bootswatch/dist/quartz/bootstrap.min.css";
 
 import {
@@ -25,23 +25,17 @@ export default class App extends React.Component {
         <Router>
           <header>
             <Navbar />
-            <button type="button" onClick={this.doLogout}>
-              Logout
-            </button>
           </header>
 
           <div className="container">
             <aside>
               <Sidebar />
             </aside>
-
-            {/* main content */}
-            <main>
+            <main className="main">
               <Switch>
                 <Route path="/home" component={Home} />
                 <Route path="/feed" component={Feed} />
                 <Route path="/member" component={Member} />
-
                 <Route path="/events" exact component={Events} />
                 <Redirect from="/" to="/feed" exact />
               </Switch>

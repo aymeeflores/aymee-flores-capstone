@@ -6,41 +6,25 @@ import Avatar from "../../assets/avatar.jpg";
 function Sidebar(props) {
   return (
     <>
-      <div className="sidebar">
-        <div className="sidebar__wrapper">
-          <ul className="sidebar__list">
-            <li className="sidebar__listitem">
-              <Rss className="sidebar__listitem--icon" />
-              <span className="sidebar__listitem--text">feed</span>
-            </li>
-            <li className="sidebar__listitem">
-              <People className="sidebar__listitem--icon" />
-              <span className="sidebar__listitem--text">Groups</span>
-            </li>
-            <li className="sidebar__listitem">
-              <CalendarEvent className="sidebar__listitem--icon" />
-              <span className="sidebar__listitem--text">Events</span>
-            </li>
-            <li className="sidebar__listitem">
-              <CameraVideo className="sidebar__listitem--icon" />
-              <span className="sidebar__listitem--text">Videos</span>
-            </li>
-            <li className="sidebar__listitem">
-              <Rss className="sidebar__listitem--icon" />
-              <span className="sidebar__listitem--text">Questions</span>
-            </li>
-          </ul>
-          <hr className="sidebar__memberlist" />
-          {/* <ul className="sidebar__memberitem">
-            {this.state.data.forEach((member) => {
-              return (
-                <li className="sidebar__friend">
-                  <img className="sidebar__img" src={member.avatar} alt="" />
-                  <span className="sidebarFriendName">{member.name}</span>
-                </li>
-              );
-            })}
-          </ul> */}
+      <div class="card border-primary mb-3">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h4 class="card-title">Primary card title</h4>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+        </div>
+      </div>
+
+      <div class="card border-secondary mb-3">
+        <div class="card-header">Friend profile</div>
+        <div class="card-body">
+          <h4 class="card-title">Secondary card title</h4>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
         </div>
       </div>
     </>
