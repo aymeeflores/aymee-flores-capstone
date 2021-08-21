@@ -16,6 +16,7 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import Events from "./pages/Events/Events";
 import Member from "./Components/Member/Member";
 import Login from "./Components/Login/Login";
+import Messages from "./pages/Messages/Messages";
 
 export default class App extends React.Component {
   render() {
@@ -23,26 +24,24 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <header>
-            <Navbar />
-          </header>
-
+          <Navbar />
           <div className="container">
-            <aside className="container__sidebar">
+            {/* <aside className="container__sidebar">
               <Sidebar />
-            </aside>
+            </aside> */}
             <main className="container__main">
               <Switch>
-                <Route path="/home" component={Home} />
-                <Route path="/feed" component={Feed} />
+                <Route path="/" exact component={Login} />
+                <Route path="/Home" component={Home} />
+                <Route path="/messages" component={Messages} />
                 <Route path="/member" component={Member} />
                 <Route path="/events" exact component={Events} />
                 <Redirect from="/" to="/feed" exact />
               </Switch>
             </main>
-            <aside className="container__rightbar">
+            {/* <aside className="container__rightbar">
               <Rightbar />
-            </aside>
+            </aside> */}
           </div>
         </Router>
       </div>

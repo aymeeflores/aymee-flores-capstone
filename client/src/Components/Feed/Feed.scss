@@ -1,3 +1,20 @@
-.feed {
-  flex: 5;
+.card {
+  margin-bottom: 20px;
+}
+
+.feedform {
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.feedinput {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.sharebtn {
+  margin-top: 10px;
+  margin-left: auto;
 }

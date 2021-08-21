@@ -16,21 +16,17 @@ export default class Feed extends Component {
   render() {
     return (
       <>
-        <div class="card">
-          <div class="card-body">
-            <div class="form-group">
-              <div className="navbar__avatar">
-                <img src={Avatar} alt="profile icon" />
-              </div>
+        <div class="card feedform">
+          <div class="card-body feedform__body">
+            <div class="form-group feedinput">
               <input
-                class="form-control form-control-lg"
+                class="form-control form-control-lg "
                 type="text"
                 placeholder={`What's on your mind, ${this.state.name} ?`}
                 id="inputLarge"
               />
             </div>
-
-            <button type="button" class="btn btn-primary btn-lg">
+            <button type="button" class="btn btn-primary btn-lg sharebtn">
               Share
             </button>
           </div>
