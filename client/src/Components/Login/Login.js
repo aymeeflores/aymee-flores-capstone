@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Login.scss";
+import Constants from "../../constants";
+import axios from "axios";
 
 export default class Login extends Component {
   constructor(props) {
@@ -14,13 +16,21 @@ export default class Login extends Component {
     this.doLogin = this.doLogin.bind(this);
     this.doLogout = this.doLogout.bind(this);
   }
+
   doLogin() {
     // TODO DO LOGIN AGAINST API DATABASE
     const { email, code } = this.state.login;
 
-    if (email === "test@gmail.com" && code === "123456") {
-      this.setState({ ...this.state, user: { email: email } });
-    }
+    axios
+      .post(`${Constants.API_URL}/login`, {
+        email,
+        code,
+      })
+      .then((response) => {
+        // console.log(response);
+        this.props.fnc(response.data);
+      })
+      .catch((e) => {});
   }
 
   doLogout() {
@@ -35,26 +45,25 @@ export default class Login extends Component {
         <>
           <form className="mainlogin">
             {/* <legend className="mainlogin__legend"> Resident Social</legend> */}
-            <div class="form-group row">
+            <div className="form-group row">
               <label
-                for="staticEmail"
-                class="col-sm-2 col-form-label"
-                className="mainlogin__greeting"
+                htmlFor="staticEmail"
+                className="col-sm-2 col-form-label mainlogin__greeting"
               >
                 Hello {this.state.name}
               </label>
             </div>
 
-            <div class="form-group mainlogin">
+            <div className="form-group mainlogin">
               <label
-                for="exampleInputEmail1"
-                class="form-label mt-4 loginlabel"
+                htmlFor="exampleInputEmail1"
+                className="form-label mt-4 loginlabel"
               >
                 Email address
               </label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
@@ -65,20 +74,20 @@ export default class Login extends Component {
                 }
                 defaultValue={this.state.login.email}
               />
-              <small id="emailHelp" class="form-text text-muted disclaimer">
+              <small id="emailHelp" className="form-text text-muted disclaimer">
                 We'll never share your email with anyone else.
               </small>
             </div>
-            <div class="form-group mainlogin">
+            <div className="form-group mainlogin">
               <label
-                for="exampleInputPassword1"
-                class="form-label mt-4 loginlabel"
+                htmlFor="exampleInputPassword1"
+                className="form-label mt-4 loginlabel"
               >
                 Password
               </label>
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Password"
                 onChange={(e) =>
@@ -92,7 +101,7 @@ export default class Login extends Component {
           </form>
           <button
             type="button"
-            class="btn btn-primary loginbtn"
+            className="btn btn-primary loginbtn"
             type="button"
             onClick={this.doLogin}
           >

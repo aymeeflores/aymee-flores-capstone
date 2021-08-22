@@ -1,96 +1,113 @@
 import React, { Component } from "react";
 import "./Feed.scss";
-
-import Avatar from "../../assets/avatar.jpg";
+import Constants from "../../constants";
+import CardText from "./CardText";
+import CardImage from "./CardImage";
+import axios from "axios";
 
 export default class Feed extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: null,
-      login: { email: "test@gmail.com", code: "123456" },
-      name: "Jinx",
+      posts: [],
+      comment: [],
     };
+
+    this.createPost = this.createPost.bind(this);
+    this.deletePost = this.deletePost.bind(this);
   }
+
+  fethcFeed() {
+    let headers = {};
+    headers["Authorization"] = "Bearer " + window.apitoken;
+
+    axios
+      .get(`${Constants.API_URL}/location/feed`, {
+        headers: headers,
+      })
+      .then((response) => {
+        console.log(response.data);
+        let posts = response.data.reverse();
+        this.setState({
+          posts: posts,
+        });
+      })
+      .catch((e) => {});
+  }
+
+  createPost() {
+    console.log(this.state.comment);
+    if (this.state.comment === "") return;
+
+    axios
+      .post(
+        `${Constants.API_URL}/location/feed`,
+        {
+          content: this.state.comment,
+          image: null,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${window.apitoken}`,
+          },
+        }
+      )
+      .then((response) => {
+        this.fethcFeed();
+      });
+  }
+
+  deletePost(item) {
+    axios
+      .delete(`${Constants.API_URL}/location/feed/${item}`, {
+        headers: {
+          Authorization: `Bearer ${window.apitoken}`,
+        },
+      })
+      .then((response) => {
+        this.fethcFeed();
+      });
+  }
+
+  componentDidMount() {
+    this.fethcFeed();
+  }
+
   render() {
     return (
       <>
-        <div class="card feedform">
-          <div class="card-body feedform__body">
-            <div class="form-group feedinput">
+        <div className="card feedform">
+          <div className="card-body feedform__body">
+            <div className="form-group feedinput">
               <input
-                class="form-control form-control-lg "
+                className="form-control form-control-lg "
                 type="text"
-                placeholder={`What's on your mind, ${this.state.name} ?`}
+                placeholder={`What's on your mind, ${window.user.name} ?`}
                 id="inputLarge"
+                onChange={(e) => this.setState({ comment: e.target.value })}
               />
             </div>
-            <button type="button" class="btn btn-primary btn-lg sharebtn">
+            <button
+              type="button"
+              className="btn btn-primary btn-lg sharebtn"
+              onClick={this.createPost}
+            >
               Share
             </button>
           </div>
         </div>
 
-        <div class="card mb-3">
-          <h3 class="card-header">Card header</h3>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-          </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="d-block user-select-none"
-            width="100%"
-            height="200"
-            aria-label="Placeholder: Image cap"
-            focusable="false"
-            role="img"
-            preserveAspectRatio="xMidYMid slice"
-            viewBox="0 0 318 180"
-          >
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-              Image cap
-            </text>
-          </svg>
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">
-              Card link
-            </a>
-            <a href="#" class="card-link">
-              Another link
-            </a>
-          </div>
-          <div class="card-footer text-muted">2 days ago</div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="card-link">
-              Card link
-            </a>
-            <a href="#" class="card-link">
-              Another link
-            </a>
-          </div>
-        </div>
+        {this.state.posts.length > 0 &&
+          this.state.posts.map((item, idx) => {
+            if (item.image) {
+              return <CardImage item={item} key={idx} />;
+            }
+
+            return (
+              <CardText item={item} deleteFnc={this.deletePost} key={idx} />
+            );
+          })}
       </>
     );
   }

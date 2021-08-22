@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import Constants from "../../constants";
 
 class Member extends React.Component {
   constructor(props) {
@@ -9,12 +11,50 @@ class Member extends React.Component {
         firstName: "John",
         lastName: "Doe",
       },
+      users: [],
     };
   }
+
+  fetchMembers() {
+    axios
+      .get(`${Constants.API_URL}/location/users`, {
+        headers: {
+          Authorization: `Bearer ${window.apitoken}`,
+        },
+      })
+      .then((response) => {
+        this.setState({
+          users: response.data,
+        });
+      })
+      .catch((e) => {});
+  }
+
+  componentDidMount() {
+    this.fetchMembers();
+  }
+
   render() {
     return (
       <div>
-        <Account user={this.state.user} />
+        {this.state.users.length > 0 &&
+          this.state.users.map((item, idx) => {
+            return (
+              <div key={idx}>
+                <img
+                  src={`${Constants.API_URL}/${item.avatar}`}
+                  alt={item.name}
+                  width="100"
+                />
+                {item.name}
+                {item.email}
+                {item.available_in}
+                {item.available_out}
+                {item.likes}
+              </div>
+            );
+          })}
+        {/* <Account user={this.state.user} /> */}
       </div>
     );
   }
@@ -24,17 +64,17 @@ const Account = (props) => {
   const { user } = props; // same as -> const user = props.user;
   return (
     <div>
-      <div class="card mb-3">
-        <h3 class="card-header">
+      <div className="card mb-3">
+        <h3 className="card-header">
           {user.firstName} {user.lastName}
         </h3>
-        <div class="card-body">
-          <h5 class="card-title">quote</h5>
-          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+        <div className="card-body">
+          <h5 className="card-title">quote</h5>
+          <h6 className="card-subtitle text-muted">Support card subtitle</h6>
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="d-block user-select-none"
+          className="d-block user-select-none"
           width="100%"
           height="200"
           aria-label="Placeholder: Image cap"
@@ -42,30 +82,25 @@ const Account = (props) => {
           role="img"
           preserveAspectRatio="xMidYMid slice"
           viewBox="0 0 318 180"
-          style="font-size:1.125rem;text-anchor:middle"
         >
           <rect width="100%" height="100%" fill="#868e96"></rect>
           <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
             Image cap
           </text>
         </svg>
-        <div class="card-body">
-          <p class="card-text">Interests</p>
+        <div className="card-body">
+          <p className="card-text">Interests</p>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">Cras justo odio</li>
+          <li className="list-group-item">Dapibus ac facilisis in</li>
+          <li className="list-group-item">Vestibulum at eros</li>
         </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">
-            Card link
-          </a>
-          <a href="#" class="card-link">
-            Another link
-          </a>
+        <div className="card-body">
+          <button className="card-link">Card link</button>
+          <button className="card-link">Another link</button>
         </div>
-        <div class="card-footer text-muted">2 days ago</div>
+        <div className="card-footer text-muted">2 days ago</div>
       </div>
       <span>
         Name - {user.firstName} {user.lastName}
