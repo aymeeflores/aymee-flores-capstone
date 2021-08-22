@@ -1,19 +1,39 @@
+import "./CardText.scss";
+import Avatar from "../../assets/avatar.jpg";
+import moment from "moment";
+import { EmojiHeartEyes, ThreeDots, Trash2 } from "react-bootstrap-icons";
+
 function CardText(props) {
+  let DatePosted = props.item.created_at;
   return (
     <div className="card">
       <div className="card-body">
-        <h4 className="card-title">{props.item.created_at}</h4>
-        <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <div className="cardheader">
+          <img className="cardavatar" src={Avatar} alt="avatar"></img>
+          <div className="cardheader__text">
+            <h6 className="username ">{window.user.name}</h6>
+            <h6 className="cardate">{moment(DatePosted).fromNow()}</h6>
+          </div>
+          <div className="cardheader__dots">
+            <ThreeDots />
+          </div>
+        </div>
         <p className="card-text">{props.item.content}</p>
-        <button className="btn">Like</button>
-        {props.item.user_id === window.user.id && (
-          <button
-            className="btn"
-            onClick={(e) => props.deleteFnc(props.item.id)}
-          >
-            Delete Post
+
+        <div className="card-icons">
+          <button className="btn">
+            <EmojiHeartEyes />
           </button>
-        )}
+          {props.item.user_id === window.user.id && (
+            <button
+              className="btn"
+              onClick={(e) => props.deleteFnc(props.item.id)}
+            >
+              <Trash2 />
+            </button>
+          )}
+        </div>
+        {/* <div className="card-footer text-muted">2 days ago</div> */}
       </div>
     </div>
   );

@@ -5,14 +5,14 @@ import Constants from "../../constants";
 class Member extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      user: {
-        id: 12,
-        firstName: "John",
-        lastName: "Doe",
-      },
-      users: [],
-    };
+    // this.state = {
+    //   user: {
+    //     id: 12,
+    //     firstName: "John",
+    //     lastName: "Doe",
+    //   },
+    //   users: [],
+    // };
   }
 
   fetchMembers() {

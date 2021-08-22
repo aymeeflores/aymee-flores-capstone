@@ -1,0 +1,43 @@
+.card-body {
+  padding: 10px;
+}
+
+.cardavatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.cardheader {
+  display: flex;
+  align-items: center;
+  &__text {
+    margin-left: 10px;
+  }
+  &__dots {
+    margin-left: auto;
+    margin-right: 35px;
+  }
+}
+.username {
+  margin: 0;
+}
+
+.cardate {
+  font-size: 12px;
+  margin: 0;
+}
+
+.card-text {
+  margin: 10px;
+}
+
+.card-icons {
+  display: flex;
+
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.btn {
+  padding: 10;
+}
