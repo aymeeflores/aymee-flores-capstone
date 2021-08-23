@@ -9,9 +9,11 @@
 }
 .cardheader {
   display: flex;
+  flex-basis: 100%;
   align-items: center;
   &__text {
     margin-left: 10px;
+    flex-basis: 100%;
   }
   &__dots {
     margin-left: auto;
@@ -29,11 +31,12 @@
 
 .card-text {
   margin: 10px;
+  width: 100%;
 }
 
 .card-icons {
   display: flex;
-
+  flex-basis: 100%;
   justify-content: space-between;
   margin: 10px;
 }

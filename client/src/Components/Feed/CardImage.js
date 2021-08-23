@@ -32,9 +32,14 @@ function CardImage(props) {
           <button className="btn">
             <EmojiHeartEyes />
           </button>
-          <button className="btn">
-            <Trash2 />
-          </button>
+          {props.item.user_id === window.user.id && (
+            <button
+              className="btn"
+              onClick={(e) => props.deleteFnc(props.item.id)}
+            >
+              <Trash2 />
+            </button>
+          )}
         </div>
         {/* <div className="card-footer text-muted">2 days ago</div> */}
       </div>

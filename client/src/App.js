@@ -10,6 +10,7 @@ import Feed from "./Components/Feed/Feed";
 import Member from "./Components/Member/Member";
 import Events from "./pages/Events/Events";
 import Messages from "./pages/Messages/Messages";
+import { Modal } from "react-bootstrap";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -64,10 +65,8 @@ export default class App extends React.Component {
       <div className="App">
         <Router>
           <Navbar />
+
           <div className="container">
-            {/* <aside className="container__sidebar">
-              <Sidebar />
-            </aside> */}
             <main className="container__main">
               <Switch>
                 <Route path="/" exact component={Feed} />
@@ -76,9 +75,6 @@ export default class App extends React.Component {
                 <Route path="/events" component={Events} />
               </Switch>
             </main>
-            {/* <aside className="container__rightbar">
-              <Rightbar />
-            </aside> */}
           </div>
         </Router>
       </div>

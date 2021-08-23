@@ -5,6 +5,48 @@ import Avatar from "../../assets/avatar.jpg";
 import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      showMenu: false,
+      user: null,
+    };
+    this.doLogin = this.doLogin.bind(this);
+    this.doLogout = this.doLogout.bind(this);
+  }
+
+  doLogin(user) {
+    window.apitoken = user.token;
+    window.user = user;
+
+    sessionStorage.setItem("apitoken", user.token);
+    sessionStorage.setItem("user", JSON.stringify(user));
+
+    console.log(window.apitoken);
+
+    this.setState({ user: user });
+  }
+
+  componentDidMount() {
+    let apitoken = sessionStorage.getItem("apitoken");
+    let user = sessionStorage.getItem("user");
+
+    if (apitoken) {
+      window.apitoken = apitoken;
+      window.user = JSON.parse(user);
+
+      this.setState({
+        user: window.user,
+      });
+    }
+  }
+
+  doLogout() {
+    this.setState({ user: null });
+    sessionStorage.clear();
+  }
+
   render() {
     return (
       <>
@@ -44,38 +86,19 @@ class Navbar extends React.Component {
                     Members
                   </Link>
                 </li>
-
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Members
-                  </a>
-                  <div className="dropdown-menu">
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                    <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="#">
-                      Separated link
-                    </a>
-                  </div>
-                </li>
               </ul>
+            </div>
+            <button
+              type="button"
+              className=" btn btn-primary btn-sm"
+              type="button"
+              onClick={this.doLogout}
+            >
+              Log Out
+            </button>
 
-              <div className="navbar__avatar">
-                <img src={Avatar} alt="profile icon" />
-              </div>
+            <div className="navbar__avatar">
+              <img src={Avatar} alt="profile icon" />
             </div>
           </div>
         </nav>
