@@ -27,7 +27,6 @@ export default class Feed extends Component {
         headers: headers,
       })
       .then((response) => {
-        console.log(response.data);
         let posts = response.data.reverse();
         this.setState({
           posts: posts,
@@ -37,7 +36,6 @@ export default class Feed extends Component {
   }
 
   createPost() {
-    console.log(this.state.comment);
     if (this.state.comment === "") return;
 
     axios

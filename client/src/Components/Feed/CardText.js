@@ -5,6 +5,7 @@ import { EmojiHeartEyes, ThreeDots, Trash2 } from "react-bootstrap-icons";
 
 function CardText(props) {
   let DatePosted = props.item.created_at;
+
   return (
     <div className="card">
       <div className="card-body">
