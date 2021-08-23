@@ -1,0 +1,26 @@
+.mainlogin {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  &__legend {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  &__greeting {
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+  }
+}
+.loginlabel {
+  margin-left: 10px;
+}
+.disclaimer {
+  margin-left: 10px;
+}
+
+.loginbtn {
+  margin-top: 10px;
+  margin-left: 10px;
+}
