@@ -64,7 +64,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Navbar />
+          <Navbar dologoutfnc={this.doLogout} />
 
           <div className="container">
             <main className="container__main">

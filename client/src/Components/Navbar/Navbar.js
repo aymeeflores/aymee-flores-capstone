@@ -10,41 +10,7 @@ class Navbar extends React.Component {
 
     this.state = {
       showMenu: false,
-      user: null,
     };
-    this.doLogin = this.doLogin.bind(this);
-    this.doLogout = this.doLogout.bind(this);
-  }
-
-  doLogin(user) {
-    window.apitoken = user.token;
-    window.user = user;
-
-    sessionStorage.setItem("apitoken", user.token);
-    sessionStorage.setItem("user", JSON.stringify(user));
-
-    console.log(window.apitoken);
-
-    this.setState({ user: user });
-  }
-
-  componentDidMount() {
-    let apitoken = sessionStorage.getItem("apitoken");
-    let user = sessionStorage.getItem("user");
-
-    if (apitoken) {
-      window.apitoken = apitoken;
-      window.user = JSON.parse(user);
-
-      this.setState({
-        user: window.user,
-      });
-    }
-  }
-
-  doLogout() {
-    this.setState({ user: null });
-    sessionStorage.clear();
   }
 
   render() {
@@ -92,7 +58,7 @@ class Navbar extends React.Component {
               type="button"
               className=" btn btn-primary btn-sm"
               type="button"
-              onClick={this.doLogout}
+              onClick={this.props.dologoutfnc}
             >
               Log Out
             </button>

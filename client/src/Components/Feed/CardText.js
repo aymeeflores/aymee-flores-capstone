@@ -2,17 +2,23 @@ import "./CardText.scss";
 import Avatar from "../../assets/avatar.jpg";
 import moment from "moment";
 import { EmojiHeartEyes, ThreeDots, Trash2 } from "react-bootstrap-icons";
+import Constants from "../../constants";
 
 function CardText(props) {
+  console.log(props);
   let DatePosted = props.item.created_at;
 
   return (
     <div className="card">
       <div className="card-body">
         <div className="cardheader">
-          <img className="cardavatar" src={Avatar} alt="avatar"></img>
+          <img
+            className="cardavatar"
+            src={`${Constants.API_URL}/${props.item.avatar}`}
+            alt="avatar"
+          ></img>
           <div className="cardheader__text">
-            <h6 className="username ">{window.user.name}</h6>
+            <h6 className="username ">{props.item.name}</h6>
             <h6 className="cardate">{moment(DatePosted).fromNow()}</h6>
           </div>
           <div className="cardheader__dots">
