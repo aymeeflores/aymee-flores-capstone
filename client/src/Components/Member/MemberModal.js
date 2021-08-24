@@ -1,8 +1,10 @@
 import Modal from "react-bootstrap/Modal";
 import React from "react";
 import { Button } from "react-bootstrap";
+import Constants from "../../constants";
 
 function MyVerticallyCenteredModal(props) {
+  console.log(props.user);
   return (
     <Modal
       {...props}
@@ -12,39 +14,33 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+          {props.user?.name}'s Profile
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        {props.user && (
+          <div className="d-flex">
+            <div>
+              <img src={`${Constants.API_URL}/${props.user?.avatar}`} alt="" />
+            </div>
+            <div className="ms-3">
+              <div>
+                Hi my name is: {props.user?.name}
+                and i like to: {props.user?.likes}
+              </div>
+              <div>
+                Iam available from {props.user.available_in}
+                to {props.user.available_out}
+              </div>
+              <div>Contact me any time at: {props.user.email}</div>
+            </div>
+          </div>
+        )}
       </Modal.Body>
-      <Modal.Footer>
+      {/* <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
+      </Modal.Footer> */}
     </Modal>
   );
 }
-
-function App() {
-  const [modalShow, setModalShow] = React.useState(false);
-
-  return (
-    <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
-      </Button>
-
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
-    </>
-  );
-}
-
-export default Modal;
+export default MyVerticallyCenteredModal;
