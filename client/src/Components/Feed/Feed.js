@@ -88,7 +88,7 @@ export default class Feed extends Component {
             </div>
             <button
               type="button"
-              className="btn btn-primary btn-lg sharebtn"
+              className="btn btn-primary"
               onClick={this.createPost}
             >
               Share

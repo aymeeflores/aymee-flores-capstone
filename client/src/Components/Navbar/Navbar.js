@@ -3,6 +3,8 @@ import "./Navbar.scss";
 // import { Bell, Envelope, PersonCircle, Search } from "react-bootstrap-icons";
 import Avatar from "../../assets/avatar.jpg";
 import { Link } from "react-router-dom";
+import Dropdown from "react-bootstrap/Dropdown";
+import { LinkContainer } from "react-router-bootstrap";
 
 class Navbar extends React.Component {
   constructor() {
@@ -10,51 +12,32 @@ class Navbar extends React.Component {
 
     this.state = {
       showMenu: false,
-      user: null,
     };
-    this.doLogin = this.doLogin.bind(this);
-    this.doLogout = this.doLogout.bind(this);
-  }
-
-  doLogin(user) {
-    window.apitoken = user.token;
-    window.user = user;
-
-    sessionStorage.setItem("apitoken", user.token);
-    sessionStorage.setItem("user", JSON.stringify(user));
-
-    console.log(window.apitoken);
-
-    this.setState({ user: user });
-  }
-
-  componentDidMount() {
-    let apitoken = sessionStorage.getItem("apitoken");
-    let user = sessionStorage.getItem("user");
-
-    if (apitoken) {
-      window.apitoken = apitoken;
-      window.user = JSON.parse(user);
-
-      this.setState({
-        user: window.user,
-      });
-    }
-  }
-
-  doLogout() {
-    this.setState({ user: null });
-    sessionStorage.clear();
   }
 
   render() {
+    const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+      <a
+        href=""
+        ref={ref}
+        onClick={(e) => {
+          e.preventDefault();
+          onClick(e);
+        }}
+      >
+        {children}
+      </a>
+    ));
+
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              Resident Social
-            </a>
+            <LinkContainer to="/">
+              <a className="navbar-brand" href="#">
+                Resident Social
+              </a>
+            </LinkContainer>
             <button
               className="navbar-toggler"
               type="button"
@@ -88,18 +71,23 @@ class Navbar extends React.Component {
                 </li>
               </ul>
             </div>
-            <button
-              type="button"
-              className=" btn btn-primary btn-sm"
-              type="button"
-              onClick={this.doLogout}
-            >
-              Log Out
-            </button>
 
-            <div className="navbar__avatar">
-              <img src={Avatar} alt="profile icon" />
-            </div>
+            <Dropdown>
+              <Dropdown.Toggle as={CustomToggle} id="dropdown-avatar">
+                <div className="navbar__avatar">
+                  <img src={Avatar} alt="profile icon" />
+                </div>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <LinkContainer to="/profile">
+                  <Dropdown.Item>Settings</Dropdown.Item>
+                </LinkContainer>
+                <Dropdown.Item onClick={this.props.dologoutfnc}>
+                  Logout
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         </nav>
       </>

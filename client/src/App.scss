@@ -8,16 +8,8 @@
 .container {
   display: flex;
   margin: 20px 0 0 0;
-  &__sidebar {
-    flex: 2;
-  }
 
   &__main {
-    flex: 5;
     margin: 0 20px;
-  }
-
-  &__rightbar {
-    flex: 2;
   }
 }
