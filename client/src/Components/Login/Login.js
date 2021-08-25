@@ -9,8 +9,8 @@ export default class Login extends Component {
 
     this.state = {
       user: null,
-      login: { email: "test@gmail.com", code: "123456" },
-      name: "Lux",
+      login: { email: "", code: "" },
+      name: "",
     };
 
     this.doLogin = this.doLogin.bind(this);
@@ -98,15 +98,15 @@ export default class Login extends Component {
                 defaultValue={this.state.login.code}
               />
             </div>
+            <button
+              type="button"
+              className="btn btn-primary loginbtn"
+              type="button"
+              onClick={this.doLogin}
+            >
+              Log In
+            </button>
           </form>
-          <button
-            type="button"
-            className="btn btn-primary loginbtn"
-            type="button"
-            onClick={this.doLogin}
-          >
-            Log In
-          </button>
         </>
       );
     }

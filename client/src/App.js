@@ -62,22 +62,24 @@ export default class App extends React.Component {
 
     // show layout if user is auth
     return (
-      <div className="App">
-        <Router>
-          <Navbar dologoutfnc={this.doLogout} />
+      <>
+        <div className="App">
+          <Router>
+            <Navbar dologoutfnc={this.doLogout} />
 
-          <div className="container">
-            <main className="container__main">
-              <Switch>
-                <Route path="/" exact component={Feed} />
-                <Route path="/messages" component={Messages} />
-                <Route path="/members" component={Member} />
-                <Route path="/events" component={Events} />
-              </Switch>
-            </main>
-          </div>
-        </Router>
-      </div>
+            <div className="container">
+              <main className="container__main">
+                <Switch>
+                  <Route path="/" exact component={Feed} />
+                  <Route path="/messages" component={Messages} />
+                  <Route path="/members" component={Member} />
+                  <Route path="/events" component={Events} />
+                </Switch>
+              </main>
+            </div>
+          </Router>
+        </div>
+      </>
     );
   }
 }

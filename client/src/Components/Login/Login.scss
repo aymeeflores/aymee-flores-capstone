@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
+  width: 60%;
+  margin: auto;
   &__legend {
     flex-basis: 100%;
     text-align: center;
@@ -21,6 +23,6 @@
 }
 
 .loginbtn {
-  margin-top: 10px;
-  margin-left: 10px;
+  width: 50%;
+  margin: 20px auto 0 auto;
 }
