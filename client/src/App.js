@@ -10,7 +10,6 @@ import Feed from "./Components/Feed/Feed";
 import Member from "./Components/Member/Member";
 import Events from "./pages/Events/Events";
 import Messages from "./pages/Messages/Messages";
-import { Modal } from "react-bootstrap";
 
 export default class App extends React.Component {
   constructor(props) {

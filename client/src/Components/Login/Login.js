@@ -46,12 +46,9 @@ export default class Login extends Component {
           <form className="mainlogin">
             {/* <legend className="mainlogin__legend"> Resident Social</legend> */}
             <div className="form-group row">
-              <label
-                htmlFor="staticEmail"
-                className="col-sm-2 col-form-label mainlogin__greeting"
-              >
-                Hello {this.state.name}
-              </label>
+              <h1 className="col-sm-2 col-form-label mainlogin__greeting">
+                Welcome to Resident Social
+              </h1>
             </div>
 
             <div className="form-group mainlogin">

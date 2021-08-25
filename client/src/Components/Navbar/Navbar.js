@@ -17,8 +17,7 @@ class Navbar extends React.Component {
 
   render() {
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-      <a
-        href=""
+      <div
         ref={ref}
         onClick={(e) => {
           e.preventDefault();
@@ -26,7 +25,7 @@ class Navbar extends React.Component {
         }}
       >
         {children}
-      </a>
+      </div>
     ));
 
     return (
@@ -34,9 +33,7 @@ class Navbar extends React.Component {
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
             <LinkContainer to="/">
-              <a className="navbar-brand" href="#">
-                Resident Social
-              </a>
+              <div className="navbar-brand">Resident Social</div>
             </LinkContainer>
             <button
               className="navbar-toggler"

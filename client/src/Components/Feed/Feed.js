@@ -4,6 +4,7 @@ import Constants from "../../constants";
 import CardText from "./CardText";
 import CardImage from "./CardImage";
 import axios from "axios";
+import { Pencil } from "react-bootstrap-icons";
 
 export default class Feed extends Component {
   constructor(props) {
@@ -81,17 +82,13 @@ export default class Feed extends Component {
               <input
                 className="form-control form-control-lg "
                 type="text"
-                placeholder={`What's on your mind, ${window.user.name} ?`}
+                placeholder={`Connect with your neighbors, ${window.user.name} `}
                 id="inputLarge"
                 onChange={(e) => this.setState({ comment: e.target.value })}
               />
             </div>
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={this.createPost}
-            >
-              Share
+            <button type="button" className="btn " onClick={this.createPost}>
+              <Pencil />
             </button>
           </div>
         </div>

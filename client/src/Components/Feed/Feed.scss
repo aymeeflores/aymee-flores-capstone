@@ -1,17 +1,17 @@
 .card {
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
+  width: 60%;
 }
 
 .feedform {
   &__body {
     display: flex;
-    flex-wrap: wrap;
   }
 }
 
 .feedinput {
   margin-left: 10px;
-  width: 100%;
+  width: 80%;
 }
 
 .sharebtn {

@@ -1,11 +1,9 @@
 import "./CardText.scss";
-import Avatar from "../../assets/avatar.jpg";
 import moment from "moment";
 import { EmojiHeartEyes, ThreeDots, Trash2 } from "react-bootstrap-icons";
 import Constants from "../../constants";
 
 function CardText(props) {
-  console.log(props);
   let DatePosted = props.item.created_at;
 
   return (
