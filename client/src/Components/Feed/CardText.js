@@ -9,7 +9,13 @@ function CardText(props) {
   return (
     <div className="card">
       <div className="card-body">
-        <div className="cardheader">
+        <div
+          className="cardheader"
+          style={{
+            paddingBottom: "15px",
+            borderBottom: "1px solid rgba(255,255,255,.5)",
+          }}
+        >
           <img
             className="cardavatar"
             src={`${Constants.API_URL}/${props.item.avatar}`}

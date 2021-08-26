@@ -66,7 +66,7 @@ class Member extends React.Component {
                 </div>
                 <div className="card-body">
                   <h4 className="card-title">{item.name}</h4>
-                  <p className="card-text">{item.likes}</p>
+                  <p className="card-text itemlikes">{item.likes}</p>
                   <button
                     variant="primary"
                     onClick={() => this.showUser(item)}

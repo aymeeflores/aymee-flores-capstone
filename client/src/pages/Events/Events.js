@@ -33,6 +33,7 @@ class Events extends React.Component {
   render() {
     return (
       <div>
+        <h1>Event List</h1>
         {/* <table class="table table-hover">
           <thead>
             <tr>

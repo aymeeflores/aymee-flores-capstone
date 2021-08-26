@@ -10,6 +10,7 @@ import Feed from "./Components/Feed/Feed";
 import Member from "./Components/Member/Member";
 import Events from "./pages/Events/Events";
 import Messages from "./pages/Messages/Messages";
+import Profile from "./pages/Profile/Profile";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -64,12 +65,13 @@ export default class App extends React.Component {
       <>
         <div className="App">
           <Router>
-            <Navbar dologoutfnc={this.doLogout} />
+            <Navbar user={this.state.user} dologoutfnc={this.doLogout} />
 
             <div className="container">
               <main className="container__main">
                 <Switch>
                   <Route path="/" exact component={Feed} />
+                  <Route path="/profile" component={Profile} />
                   <Route path="/messages" component={Messages} />
                   <Route path="/members" component={Member} />
                   <Route path="/events" component={Events} />

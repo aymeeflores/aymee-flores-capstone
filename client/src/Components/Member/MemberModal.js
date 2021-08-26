@@ -1,3 +1,4 @@
+import "./MemberModal.scss";
 import Modal from "react-bootstrap/Modal";
 import React from "react";
 import Constants from "../../constants";
@@ -18,19 +19,29 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Body>
         {props.user && (
           <div className="d-flex">
-            <div>
-              <img src={`${Constants.API_URL}/${props.user?.avatar}`} alt="" />
+            <div
+              className="profilepic"
+              style={{
+                backgroundImage: `url(${Constants.API_URL}/${props.user?.avatar})`,
+              }}
+            >
+              {/* <img
+                src={`${Constants.API_URL}/${props.user?.avatar}`}
+                alt="profile picture"
+              /> */}
             </div>
             <div className="ms-3">
               <div>
-                Hi my name is: {props.user?.name}
-                and i like to: {props.user?.likes}
+                <strong>Interests:</strong>
+                {props.user?.likes}
               </div>
               <div>
-                Iam available from {props.user.available_in}
+                <strong>I am available from</strong> {props.user.available_in}
                 to {props.user.available_out}
               </div>
-              <div>Contact me any time at: {props.user.email}</div>
+              <div>
+                <strong>Contact me any time at:</strong> {props.user.email}
+              </div>
             </div>
           </div>
         )}
