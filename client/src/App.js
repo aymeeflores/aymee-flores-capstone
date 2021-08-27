@@ -1,8 +1,6 @@
 import "./App.scss";
 import "bootswatch/dist/quartz/bootstrap.min.css";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Home from "./pages/Home/Home";
 import React from "react";
 import Login from "./Components/Login/Login";
 import Navbar from "./Components/Navbar/Navbar";

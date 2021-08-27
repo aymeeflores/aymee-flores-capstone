@@ -64,7 +64,7 @@ class Member extends React.Component {
                     width="100"
                   />
                 </div>
-                <div className="card-body">
+                <div className="card-body memberinfo">
                   <h4 className="card-title">{item.name}</h4>
                   <p className="card-text itemlikes">{item.likes}</p>
                   <button

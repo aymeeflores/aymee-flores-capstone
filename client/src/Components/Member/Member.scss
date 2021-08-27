@@ -26,9 +26,10 @@
   text-align: center;
 }
 
-.card-body {
+.memberinfo {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-between;
   justify-content: center;
   align-items: center;
 }
