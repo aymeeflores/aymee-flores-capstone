@@ -20,37 +20,60 @@ class Events extends React.Component {
         this.setState({
           events: response.data,
         });
-        console.log(response.data);
       })
       .catch((e) => {});
   }
 
   componentDidMount() {
     this.fetchEvents();
-    console.log(this.fetchEvents);
   }
 
   render() {
     return (
       <div>
-        {/* <table class="table table-hover">
+        <h1>Event List</h1>
+        <table className="table table-hover">
           <thead>
             <tr>
               <th scope="col">Type</th>
-              <th scope="col">Column heading</th>
-              <th scope="col">Column heading</th>
-              <th scope="col">Column heading</th>
+              <th scope="col">Event Name</th>
+              <th scope="col">Event Description</th>
+              <th scope="col">Event Date</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-active">
+            <tr className="table-active">
               <th scope="row">Active</th>
-              <td>Column content</td>
-              <td>Column content</td>
-              <td>Column content</td>
+              <td>Book Club</td>
+              <td>join Ahri to discuss the book of the month</td>
+              <td>Last sunday of every month</td>
             </tr>
           </tbody>
-        </table> */}
+          <tbody>
+            <tr className="table-active">
+              <th scope="row">Active</th>
+              <td>Happy Hour</td>
+              <td>join Lux for happy hour at City Place</td>
+              <td>Every other Wednesday</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr className="table-active">
+              <th scope="row">Active</th>
+              <td>Gym Buddies</td>
+              <td>join Sett for a workout</td>
+              <td>Every morning at 6:00AM</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr className="table-active">
+              <th scope="row">Active</th>
+              <td>Inline Skating</td>
+              <td>join Aphelios for an afternoon at the park skating</td>
+              <td>Saturday Sept 4 , 2021</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     );
   }

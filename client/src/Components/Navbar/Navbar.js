@@ -1,14 +1,14 @@
 import React from "react";
 import "./Navbar.scss";
-// import { Bell, Envelope, PersonCircle, Search } from "react-bootstrap-icons";
 import Avatar from "../../assets/avatar.jpg";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import { LinkContainer } from "react-router-bootstrap";
+import Constants from "../../constants";
 
 class Navbar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       showMenu: false,
@@ -17,8 +17,7 @@ class Navbar extends React.Component {
 
   render() {
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-      <a
-        href=""
+      <div
         ref={ref}
         onClick={(e) => {
           e.preventDefault();
@@ -26,7 +25,7 @@ class Navbar extends React.Component {
         }}
       >
         {children}
-      </a>
+      </div>
     ));
 
     return (
@@ -34,9 +33,7 @@ class Navbar extends React.Component {
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
             <LinkContainer to="/">
-              <a className="navbar-brand" href="#">
-                Resident Social
-              </a>
+              <div className="navbar-brand">Resident Social</div>
             </LinkContainer>
             <button
               className="navbar-toggler"
@@ -75,7 +72,10 @@ class Navbar extends React.Component {
             <Dropdown>
               <Dropdown.Toggle as={CustomToggle} id="dropdown-avatar">
                 <div className="navbar__avatar">
-                  <img src={Avatar} alt="profile icon" />
+                  <img
+                    src={`${Constants.API_URL}/${this.props.user?.avatar}`}
+                    alt="profile icon"
+                  />
                 </div>
               </Dropdown.Toggle>
 

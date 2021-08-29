@@ -23,7 +23,20 @@ function CardImage(props) {
           <h5 className="card-title">Special title treatment</h5>
           <h6 className="card-subtitle text-muted">Support card subtitle</h6>
         </div> */}
-        <img src={`${Constants.API_URL}/${props.item.image}`} alt="whattt" />
+        <div
+          style={{
+            backgroundImage: `url(${Constants.API_URL}/${props.item.image})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center 20%",
+            height: "400px",
+          }}
+        ></div>
+        {/* <img
+          src={`${Constants.API_URL}/${props.item.image}`}
+          alt="whattt"
+          style={{ display: "none" }}
+        /> */}
         <div className="card-body">
           <p className="card-text">{props.item.content}</p>
         </div>

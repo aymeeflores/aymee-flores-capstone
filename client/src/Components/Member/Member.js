@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import Constants from "../../constants";
 import "./Member.scss";
@@ -64,9 +64,9 @@ class Member extends React.Component {
                     width="100"
                   />
                 </div>
-                <div className="card-body">
+                <div className="card-body memberinfo">
                   <h4 className="card-title">{item.name}</h4>
-                  <p className="card-text">{item.likes}</p>
+                  <p className="card-text itemlikes">{item.likes}</p>
                   <button
                     variant="primary"
                     onClick={() => this.showUser(item)}

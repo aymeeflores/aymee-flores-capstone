@@ -1,8 +1,6 @@
 import "./App.scss";
 import "bootswatch/dist/quartz/bootstrap.min.css";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Home from "./pages/Home/Home";
 import React from "react";
 import Login from "./Components/Login/Login";
 import Navbar from "./Components/Navbar/Navbar";
@@ -10,7 +8,7 @@ import Feed from "./Components/Feed/Feed";
 import Member from "./Components/Member/Member";
 import Events from "./pages/Events/Events";
 import Messages from "./pages/Messages/Messages";
-import { Modal } from "react-bootstrap";
+import Profile from "./pages/Profile/Profile";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -65,12 +63,13 @@ export default class App extends React.Component {
       <>
         <div className="App">
           <Router>
-            <Navbar dologoutfnc={this.doLogout} />
+            <Navbar user={this.state.user} dologoutfnc={this.doLogout} />
 
             <div className="container">
               <main className="container__main">
                 <Switch>
                   <Route path="/" exact component={Feed} />
+                  <Route path="/profile" component={Profile} />
                   <Route path="/messages" component={Messages} />
                   <Route path="/members" component={Member} />
                   <Route path="/events" component={Events} />
