@@ -55,7 +55,7 @@ export default class Login extends Component {
 							</label>
 							<input
 								type="email"
-								className="form-control logininput"
+								className="logininput"
 								id="exampleInputEmail1"
 								aria-describedby="emailHelp"
 								placeholder="Enter email"
@@ -73,7 +73,7 @@ export default class Login extends Component {
 							</label>
 							<input
 								type="password"
-								className="form-control logininput"
+								className="logininput"
 								id="exampleInputPassword1"
 								placeholder="Password"
 								onChange={(e) =>
