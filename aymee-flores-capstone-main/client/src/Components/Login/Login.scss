@@ -1,0 +1,46 @@
+.mainlogin {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #858aeb;
+	border-radius: 20px;
+	padding: 50px;
+	margin: auto;
+
+	&__legend {
+		flex-basis: 100%;
+		text-align: center;
+	}
+	&__greeting {
+		width: 100%;
+		text-align: center;
+
+		font-size: 18px;
+	}
+	&__subtitle {
+		text-align: center;
+		font-size: 14px;
+	}
+	.logincontainer {
+		padding-top: 10px;
+		&__loginlabel {
+			text-align: center;
+			padding: 15px;
+		}
+	}
+}
+.logininput {
+	margin-left: 10px;
+	border-radius: 8px;
+	width: 300px;
+}
+.disclaimer {
+	margin-left: 10px;
+}
+
+.loginbtn {
+	margin: 20px auto 0 auto;
+	border-radius: 8px;
+	width: 250px;
+}
