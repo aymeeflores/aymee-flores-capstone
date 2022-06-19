@@ -45,53 +45,52 @@ export default class Login extends Component {
 		if (!this.state.user) {
 			return (
 				<>
-					<div className="loginwrapper">
-						<Form className="mainlogin">
-							<div className=" row">
-								<h1 className=" mainlogin__greeting">Welcome Back!</h1>
-								<h3 className=" mainlogin__subtitle">Connect with your neighbors</h3>
-							</div>
+					<div className="loginbackground"></div>
+					<Form className="mainlogin">
+						<div className=" row">
+							<h1 className=" mainlogin__greeting">Welcome Back!</h1>
+							<h3 className=" mainlogin__subtitle">Connect with your neighbors</h3>
+						</div>
 
-							<FormGroup className="logincontainer">
-								<label htmlFor="exampleInputEmail1" className="logincontainer__loginlabel">
-									Email address
-								</label>
-								<input
-									type="email"
-									className="logininput"
-									id="exampleInputEmail1"
-									aria-describedby="emailHelp"
-									placeholder="Enter email"
-									onChange={(e) =>
-										this.setState({
-											login: { ...this.state.login, email: e.target.value },
-										})
-									}
-									defaultValue={this.state.login.email}
-								/>
-							</FormGroup>
-							<FormGroup className="logincontainer ">
-								<label htmlFor="exampleInputPassword1" className="logincontainer__loginlabel">
-									Password
-								</label>
-								<input
-									type="password"
-									className="logininput"
-									id="exampleInputPassword1"
-									placeholder="Password"
-									onChange={(e) =>
-										this.setState({
-											login: { ...this.state.login, code: e.target.value },
-										})
-									}
-									defaultValue={this.state.login.code}
-								/>
-							</FormGroup>
-							<Button type="Button" className="loginbtn" onClick={this.doLogin}>
-								Log In
-							</Button>
-						</Form>
-					</div>
+						<FormGroup className="logincontainer">
+							<label htmlFor="exampleInputEmail1" className="logincontainer__loginlabel">
+								Email address
+							</label>
+							<input
+								type="email"
+								className="logininput"
+								id="exampleInputEmail1"
+								aria-describedby="emailHelp"
+								placeholder="Enter email"
+								onChange={(e) =>
+									this.setState({
+										login: { ...this.state.login, email: e.target.value },
+									})
+								}
+								defaultValue={this.state.login.email}
+							/>
+						</FormGroup>
+						<FormGroup className="logincontainer ">
+							<label htmlFor="exampleInputPassword1" className="logincontainer__loginlabel">
+								Password
+							</label>
+							<input
+								type="password"
+								className="logininput"
+								id="exampleInputPassword1"
+								placeholder="Password"
+								onChange={(e) =>
+									this.setState({
+										login: { ...this.state.login, code: e.target.value },
+									})
+								}
+								defaultValue={this.state.login.code}
+							/>
+						</FormGroup>
+						<Button type="Button" className="loginbtn" onClick={this.doLogin}>
+							Log In
+						</Button>
+					</Form>
 				</>
 			);
 		}
