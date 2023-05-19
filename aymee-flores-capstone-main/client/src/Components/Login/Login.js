@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Form, Button, FormGroup } from "react-bootstrap";
 import "./Login.scss";
 import Constants from "../../constants";
-
 import axios from "axios";
 
 export default class Login extends Component {

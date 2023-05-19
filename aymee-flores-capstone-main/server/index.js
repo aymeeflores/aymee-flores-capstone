@@ -4,8 +4,8 @@ const app = express();
 const cors = require("cors");
 
 var corOptions = {
-  origin: "*",
-  optionSuccessStatus: 200,
+	origin: "*",
+	optionSuccessStatus: 200,
 };
 
 app.use(cors());
@@ -22,7 +22,7 @@ const messageRoutes = require("./routes/messages");
 
 // default
 app.get("/", (req, res) => {
-  res.json({ message: "hello from api" });
+	res.json({ message: "hello from api" });
 });
 // static files :: avatars
 app.use(express.static("public"));
@@ -34,5 +34,5 @@ app.use("/location", valid_token, is_auth, locationRoutes);
 
 // open server
 app.listen(8080, () => {
-  console.log("Listening on por 8080");
+	console.log("Listening on port 8080");
 });
