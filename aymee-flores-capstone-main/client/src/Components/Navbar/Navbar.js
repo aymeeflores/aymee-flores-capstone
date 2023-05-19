@@ -30,50 +30,38 @@ class Navbar extends React.Component {
 
 		return (
 			<>
-				<nav className="navbar">
-					<div className="container-fluid">
-						<LinkContainer to="/">
-							<div className="navbar__brand">Resident Social</div>
-						</LinkContainer>
-
-						<div className="collapse navbar-collapse" id="navbarColor01">
-							<ul className="navbar-nav me-auto">
-								<li className="nav-item">
-									<Link to="/" className="nav-link active">
-										Home
-									</Link>
+				<section class="navigation">
+					<div class="nav-container">
+						<div class="brand">
+							<Link to="/">Resident Social</Link>
+						</div>
+						<nav>
+							<div class="nav-mobile">
+								<a id="nav-toggle" href="#!">
+									<span></span>
+								</a>
+							</div>
+							<ul class="nav-list">
+								<li>
+									<Link to="/">Home</Link>
+								</li>
+								<li>
+									<Link to="/events">Events</Link>
 								</li>
 
-								<li className="nav-item">
-									<Link to="/events" className="nav-link">
-										Events
-									</Link>
+								<li>
+									<Link to="/members">members</Link>
 								</li>
-
-								<li className="nav-item">
-									<Link to="/members" className="nav-link active">
-										Members
+								<li>
+									<Link to="/" onClick={this.props.dologoutfnc}>
+										Logout
 									</Link>
 								</li>
 							</ul>
-						</div>
-
-						<Dropdown>
-							<Dropdown.Toggle as={CustomToggle} id="dropdown-avatar">
-								<div className="navbar__avatar">
-									<img src={`${Constants.API_URL}/${this.props.user?.avatar}`} alt="profile icon" />
-								</div>
-							</Dropdown.Toggle>
-
-							<Dropdown.Menu>
-								<LinkContainer to="/profile">
-									<Dropdown.Item>Settings</Dropdown.Item>
-								</LinkContainer>
-								<Dropdown.Item onClick={this.props.dologoutfnc}>Logout</Dropdown.Item>
-							</Dropdown.Menu>
-						</Dropdown>
+						</nav>
+						{/* <img className="nav-container__avatar" src={`${Constants.API_URL}/${this.props.user?.avatar}`} alt="profile icon" /> */}
 					</div>
-				</nav>
+				</section>
 			</>
 		);
 	}
