@@ -1,21 +1,41 @@
 .card {
-  margin: 0 auto 20px auto;
-  width: 80%;
+	margin: 0 auto 20px auto;
+	width: 80%;
 }
 
 .feedform {
-  width: 80%;
-  &__body {
-    display: flex;
-  }
+	width: 80%;
+
+	&__body {
+		display: flex;
+	}
 }
 
 .feedinput {
-  margin-left: 10px;
-  width: 80%;
+	margin-left: 10px;
+	width: 90%;
+	&__input {
+		width: 90%;
+		border: 1px solid black;
+		border-radius: 50px;
+		padding: 8px;
+	}
 }
 
 .sharebtn {
-  margin-top: 10px;
-  margin-left: auto;
+	border: none;
+	text-decoration: none;
+	background: #0069ed;
+	color: #fff;
+	border-radius: 20px;
+	width: 80px;
+	font-size: 1em;
+}
+button:hover,
+button:focus {
+	background: #0053ba;
+}
+button:focus {
+	outline: 1px solid #fff;
+	outline-offset: -4px;
 }
