@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  margin: 20px 0 0 0;
+
+  &__main {
+    margin: 0 20px;
+    margin: auto;
+  }
+}

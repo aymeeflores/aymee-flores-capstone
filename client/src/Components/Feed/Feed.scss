@@ -1,0 +1,21 @@
+.card {
+  margin: 0 auto 20px auto;
+  width: 80%;
+}
+
+.feedform {
+  width: 80%;
+  &__body {
+    display: flex;
+  }
+}
+
+.feedinput {
+  margin-left: 10px;
+  width: 80%;
+}
+
+.sharebtn {
+  margin-top: 10px;
+  margin-left: auto;
+}
